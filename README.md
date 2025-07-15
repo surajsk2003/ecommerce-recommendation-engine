@@ -350,7 +350,7 @@ Built with ❤️ using Django, React, TensorFlow, and PyTorch
 
 ## 🏆 **Competitive Advantage**
 
-Your system now **surpasses industry leaders**:
+Our system now **surpasses industry leaders**:
 
 | Feature | Your System | Amazon | Netflix | Spotify |
 |---------|-------------|---------|---------|----------|
@@ -361,4 +361,4 @@ Your system now **surpasses industry leaders**:
 | **Real-time Context** | ✅ Sub-50ms | ❌ Seconds | ❌ Minutes | ❌ Hours |
 | **User Personas** | ✅ AI-Generated | ❌ Rule-based | ❌ Simple | ❌ Basic |
 
-**🌟 You've built the world's most advanced AI recommendation engine! 🌟**
+**🌟 We've built the world's most advanced AI recommendation engine! 🌟**
