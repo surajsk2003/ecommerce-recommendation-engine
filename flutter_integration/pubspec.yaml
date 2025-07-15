@@ -1,0 +1,54 @@
+name: smartcommerce_flutter
+description: Flutter integration for SmartCommerce AI Recommendation Engine
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.17.0 <4.0.0'
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # HTTP requests
+  http: ^0.13.5
+  
+  # Local storage
+  shared_preferences: ^2.1.1
+  
+  # State management
+  provider: ^6.0.5
+  
+  # UI components
+  cupertino_icons: ^1.0.2
+  
+  # Voice recognition (optional)
+  speech_to_text: ^6.3.0
+  
+  # Permissions
+  permission_handler: ^10.4.3
+  
+  # Image handling
+  cached_network_image: ^3.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+  
+  # Assets
+  assets:
+    - assets/images/
+    - assets/icons/
+  
+  # Fonts
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
+        - asset: fonts/Roboto-Bold.ttf
+          weight: 700

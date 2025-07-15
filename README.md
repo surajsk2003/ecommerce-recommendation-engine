@@ -85,6 +85,12 @@ Prometheus + Grafana + ELK Stack
 - **Lucide React** - Beautiful icons
 - **Real-time Updates** - Live metrics dashboard
 
+### Mobile Apps
+- **Flutter** - Cross-platform mobile app
+- **React Native** - Alternative mobile solution
+- **Native Performance** - Smooth user experience
+- **Offline Capabilities** - Works without internet
+
 ### ML Libraries
 - **scikit-learn** - Traditional ML algorithms
 - **pandas & numpy** - Data processing
@@ -143,6 +149,18 @@ redis-server
 
 # Terminal 2: Celery Worker
 celery -A ecommerce_rec worker --loglevel=info
+```
+
+5. **Flutter Mobile App (Optional)**
+```bash
+# Navigate to Flutter integration
+cd flutter_integration/
+
+# Install dependencies
+flutter pub get
+
+# Run on device/emulator
+flutter run
 ```
 
 ## 📡 API Endpoints
@@ -280,6 +298,14 @@ MODEL_CONFIG = {
 - **Voice Interface**: Hands-free shopping experience
 - **Real-time Context**: Sub-50ms personalization
 
+### Mobile App Performance
+- **Flutter Integration**: Native cross-platform performance
+- **Offline Mode**: Cached recommendations work without internet
+- **Voice Shopping**: Hands-free mobile product discovery
+- **Push Notifications**: Personalized shopping alerts
+- **Real-time Sync**: Seamless web-to-mobile experience
+- **Native UI**: Material Design with smooth animations
+
 ## 🐳 Enterprise Deployment
 
 ### Quick Start
@@ -360,5 +386,7 @@ Our system now **surpasses industry leaders**:
 | **Privacy Preservation** | ✅ Differential Privacy | ❌ Basic | ❌ Basic | ❌ Basic |
 | **Real-time Context** | ✅ Sub-50ms | ❌ Seconds | ❌ Minutes | ❌ Hours |
 | **User Personas** | ✅ AI-Generated | ❌ Rule-based | ❌ Simple | ❌ Basic |
+| **Mobile App** | ✅ Flutter + React Native | ✅ Native Apps | ✅ Native Apps | ✅ Native Apps |
+| **Offline Mode** | ✅ Full Offline Support | ❌ Limited | ❌ Limited | ✅ Limited |
 
 **🌟 We've built the world's most advanced AI recommendation engine! 🌟**
