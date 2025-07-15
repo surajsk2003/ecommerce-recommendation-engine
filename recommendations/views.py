@@ -8,14 +8,33 @@ from django.core.files.storage import default_storage
 from django.conf import settings
 from .recommendation_engine import RecommendationEngine
 from .enhanced_engine import EnhancedRecommendationEngine
+from .streaming_processor import RealTimeEventProcessor, UserEvent
+from .ab_testing import ABTestingFramework, ExperimentConfig, ExperimentStatus
+from .performance_monitor import PerformanceMonitor, RealTimeAnalytics
 from .models import UserBehavior, Product, DatasetUpload, ModelTraining
 import logging
 import os
+from datetime import datetime, timedelta
 
 logger = logging.getLogger(__name__)
 
 recommendation_engine = RecommendationEngine()
 enhanced_engine = EnhancedRecommendationEngine()
+
+# Initialize streaming and A/B testing components
+streaming_config = {
+    'redis_host': 'localhost',
+    'redis_port': 6379
+}
+
+# Create Redis client
+import redis
+redis_client = redis.Redis(host='localhost', port=6379, decode_responses=True)
+
+stream_processor = RealTimeEventProcessor(streaming_config)
+ab_framework = ABTestingFramework(redis_client, streaming_config)
+performance_monitor = PerformanceMonitor(redis_client)
+realtime_analytics = RealTimeAnalytics(redis_client)
 
 class RecommendationsAPIView(APIView):
     def get(self, request, user_id):

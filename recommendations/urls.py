@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from . import streaming_views
 
 urlpatterns = [
     # Basic endpoints
@@ -15,4 +16,9 @@ urlpatterns = [
     path('retrain/', views.RetrainModelsAPIView.as_view(), name='retrain'),
     path('enhanced-recommendations/<int:user_id>/', views.EnhancedRecommendationsAPIView.as_view(), name='enhanced_recommendations'),
     path('datasets/', views.DatasetListAPIView.as_view(), name='dataset_list'),
+    
+    # Streaming and real-time endpoints
+    path('streaming-event/', streaming_views.StreamingEventAPIView.as_view(), name='streaming_event'),
+    path('ab-test/create/', streaming_views.ABTestCreateAPIView.as_view(), name='ab_test_create'),
+    path('performance-metrics/', streaming_views.PerformanceMetricsAPIView.as_view(), name='performance_metrics'),
 ]
