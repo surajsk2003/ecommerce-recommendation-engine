@@ -16,6 +16,55 @@ Welcome to the **future of online shopping** — built with next-level Artificia
 
 ---
 
+## 📸 **Screenshots & UI Preview**
+
+### 🎨 **Frontend Interface**
+<!-- Add your frontend screenshots here -->
+<details>
+<summary>📱 Click to view Frontend Screenshots</summary>
+
+![Homepage](screenshots/homepage.png)
+*Main dashboard with AI-powered recommendations*
+
+![Product Search](screenshots/search.png)
+*Visual product search with computer vision*
+
+![User Dashboard](screenshots/dashboard.png)
+*Personalized user experience dashboard*
+
+</details>
+
+### ⚙️ **Admin Panel**
+<!-- Add your admin panel screenshots here -->
+<details>
+<summary>🔧 Click to view Admin Screenshots</summary>
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+*Django admin interface for content management*
+
+![Model Analytics](screenshots/model-metrics.png)
+*ML model performance monitoring*
+
+![User Management](screenshots/user-management.png)
+*User behavior and interaction tracking*
+
+</details>
+
+### 📊 **API Documentation**
+<!-- Add your API screenshots here -->
+<details>
+<summary>🔌 Click to view API Screenshots</summary>
+
+![API Endpoints](screenshots/api-endpoints.png)
+*RESTful API endpoint listing*
+
+![API Response](screenshots/api-response.png)
+*Sample API response with recommendation data*
+
+</details>
+
+---
+
 ## ✨ What Makes Us Revolutionary?
 
 ### 🔬 Computer Vision Engine
