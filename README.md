@@ -2,6 +2,18 @@
 
 Welcome to the **future of online shopping** — built with next-level Artificial Intelligence, Computer Vision, Blockchain, and IoT. This platform is more than code: it's a vision for smarter, faster, and *trustworthy* commerce.
 
+## 🌐 **LIVE DEMO** 
+**🎯 Frontend:** https://surajsk2003.github.io/ecommerce-recommendation-engine/  
+**🔧 Backend API:** https://ecommerce-backend-ba28.onrender.com/  
+**⚙️ Admin Panel:** https://ecommerce-backend-ba28.onrender.com/admin/
+
+### 🏆 **Deployment Success**
+✅ **Full-Stack Deployed** - React frontend on GitHub Pages + Django backend on Render  
+✅ **Production Database** - PostgreSQL with automated migrations  
+✅ **API Integration** - Frontend connected to live backend  
+✅ **Admin Dashboard** - Complete content management system  
+✅ **Security Hardened** - HTTPS, CORS configured, secrets secured
+
 ---
 
 ## ✨ What Makes Us Revolutionary?
@@ -118,13 +130,25 @@ flutter run
 
 ## 📡 API Endpoints
 
-| Endpoint | Description |
-|----------|-------------|
-| `GET /api/recommendations/{user_id}/?count=10` | Get personalized recommendations |
-| `POST /api/interaction/` | Log user interaction |
-| `GET /api/search/?q=query&user_id=1` | Search products |
-| `POST /api/train/` | Train models |
-| ... | *(See full API in docs)* |
+**🔗 Base URL:** https://ecommerce-backend-ba28.onrender.com/api/
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | List all available endpoints |
+| `/recommendations/{user_id}/` | GET | Get personalized recommendations |
+| `/interaction/` | POST | Log user interaction |
+| `/search/?q=query&user_id=1` | GET | Search products |
+| `/train/` | POST | Train ML models |
+| `/upload-dataset/` | POST | Upload training dataset |
+| `/enhanced-train/` | POST | Enhanced model training |
+| `/model-metrics/` | GET | Get model performance metrics |
+| `/retrain/` | POST | Retrain existing models |
+| `/enhanced-recommendations/{user_id}/` | GET | Advanced recommendations |
+| `/datasets/` | GET | List uploaded datasets |
+
+**🧪 Test the API:**
+- Visit: https://ecommerce-backend-ba28.onrender.com/api/
+- Admin Panel: https://ecommerce-backend-ba28.onrender.com/admin/
 
 ---
 
@@ -202,19 +226,52 @@ MODEL_CONFIG = {
 
 ## 🐳 Deployment
 
-**Quick Start**
+### 🌐 **Production Deployment (LIVE)**
+
+**✅ Current Stack:**
+- **Frontend:** GitHub Pages (React)
+- **Backend:** Render (Django + PostgreSQL)
+- **Database:** Render PostgreSQL (Free tier)
+- **Cache:** Redis (via Upstash)
+
+**🚀 Deploy Your Own:**
+
+**1. Backend on Render:**
+```bash
+# Push to GitHub, then:
+# 1. Go to render.com → New Web Service
+# 2. Connect GitHub repo
+# 3. Settings:
+#    - Build Command: pip install -r requirements.txt
+#    - Start Command: gunicorn ecommerce_rec.wsgi:application --bind 0.0.0.0:$PORT
+#    - Environment: Python 3
+# 4. Add PostgreSQL service
+# 5. Set environment variables:
+DJANGO_SECRET_KEY=your-secret-key
+DJANGO_SETTINGS_MODULE=ecommerce_rec.settings_prod
+DATABASE_URL=postgresql://... (from Render PostgreSQL)
+DEBUG=False
+```
+
+**2. Frontend on GitHub Pages:**
+```bash
+cd frontend/
+npm install
+npm run deploy  # Deploys to GitHub Pages automatically
+```
+
+**🔧 Local Development:**
 ```bash
 cp .env.example .env
 ./deploy.sh development
-./deploy.sh production
 ```
 
-**Docker Compose**
+**🐳 Docker Alternative:**
 ```bash
 docker-compose -f docker-compose.prod.yml up -d
 ```
 
-**Kubernetes**
+**☸️ Kubernetes:**
 ```bash
 kubectl apply -f kubernetes-deployment.yaml
 kubectl get pods -n smartcommerce
