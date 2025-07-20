@@ -8,10 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'your-secret-key-change-in-production')
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-# Allowed hosts for Railway
+# Allowed hosts for Render and Railway
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    '.onrender.com',    # Render domains
     '.up.railway.app',  # Railway domains
     '.railway.app',     # Railway domains
 ]
@@ -122,7 +123,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     # Add your GitHub Pages URL here when you deploy frontend
-    # "https://yourusername.github.io",
+    "https://surajsk2003.github.io",
 ]
 
 # Allow all origins in development (remove in production)
