@@ -1,0 +1,1836 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI E-Commerce Recommendation Engine - Complete Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
+                        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-top: 40px;
+            font-size: 2.5em;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 10px;
+            margin-top: 35px;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin-top: 25px;
+            font-size: 1.2em;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+        
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', monospace;
+            font-size: 0.9em;
+            color: #e74c3c;
+        }
+        
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #2c3e50;
+        }
+        
+        blockquote {
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            padding-left: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        ul, ol {
+            margin-bottom: 16px;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .toc {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .toc h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 1px solid #bdc3c7;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc ul ul {
+            padding-left: 20px;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .note {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                padding: 20px;
+                font-size: 12pt;
+            }
+            
+            h1 {
+                page-break-before: always;
+                font-size: 18pt;
+            }
+            
+            h2 {
+                page-break-before: avoid;
+                font-size: 16pt;
+            }
+            
+            h3 {
+                font-size: 14pt;
+            }
+            
+            pre, code {
+                page-break-inside: avoid;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+            
+            .toc {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>🚀 AI E-Commerce Recommendation Engine - Complete Technical Documentation</h1>
+<br>
+<h2>Table of Contents</h2>
+<li>[Project Overview](#project-overview)</li>
+<p>2. [Architecture & System Design](#architecture--system-design)</p>
+<p>3. [Backend Technologies](#backend-technologies)</p>
+<p>4. [Frontend Technologies](#frontend-technologies)</p>
+<p>5. [Machine Learning Components](#machine-learning-components)</p>
+<p>6. [Database Design](#database-design)</p>
+<p>7. [API Endpoints](#api-endpoints)</p>
+<p>8. [Deployment & DevOps](#deployment--devops)</p>
+<p>9. [Code Structure & Files](#code-structure--files)</p>
+<p>10. [How Everything Works Together](#how-everything-works-together)</p>
+<p>11. [Learning Path & Next Steps](#learning-path--next-steps)</p>
+<br>
+<p>---</p>
+<br>
+<h2>1. Project Overview</h2>
+<br>
+<h3>What is this project?</h3>
+<p>This is a <strong>full-stack AI-powered e-commerce recommendation engine<strong> that provides personalized product recommendations to users based on their behavior, preferences, and interaction history.</p>
+<br>
+<h3>Key Features</h3>
+<li>**AI-Powered Recommendations**: Uses machine learning algorithms to suggest products</li>
+<li>**Real-time User Tracking**: Records and analyzes user interactions</li>
+<li>**RESTful API**: Clean, well-documented API endpoints</li>
+<li>**Admin Dashboard**: Django admin interface for data management</li>
+<li>**React Frontend**: Modern, responsive user interface</li>
+<li>**Scalable Architecture**: Designed for production deployment</li>
+<br>
+<h3>Technologies Stack Overview</h3>
+<pre><code class="">
+Frontend: React 18 + JavaScript + CSS
+Backend: Django 4.2 + Python 3.10 + Django REST Framework
+Database: SQLite (dev) / PostgreSQL (prod)
+Cache: Redis (optional)
+ML Libraries: scikit-learn, pandas, numpy
+Deployment: Docker + Docker Compose
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>2. Architecture & System Design</h2>
+<br>
+<h3>High-Level Architecture</h3>
+<pre><code class="">
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   React Frontend │    │   Django API    │    │   ML Engine     │
+│   (Port 3000)   │◄──►│   (Port 8000)   │◄──►│  (scikit-learn) │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         │                       ▼                       │
+         │              ┌─────────────────┐              │
+         │              │   SQLite DB     │              │
+         │              │  (Users, Prods, │              │
+         │              │  Interactions)  │              │
+         │              └─────────────────┘              │
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────────────────────────────────────────────────┐
+│                    Cache Layer (Redis - Optional)           │
+└─────────────────────────────────────────────────────────────┘
+</code></pre>
+<br>
+<h3>Request Flow</h3>
+<li>**User Interaction**: User clicks/views product in React frontend</li>
+<p>2. <strong>API Request<strong>: Frontend sends HTTP request to Django backend</p>
+<p>3. <strong>Business Logic<strong>: Django processes request, applies business rules</p>
+<p>4. <strong>ML Processing<strong>: Recommendation engine generates personalized suggestions</p>
+<p>5. <strong>Database Query<strong>: Data retrieved/stored in SQLite database</p>
+<p>6. <strong>Response<strong>: JSON data sent back to frontend</p>
+<p>7. <strong>UI Update<strong>: React updates interface with new data</p>
+<br>
+<p>---</p>
+<br>
+<h2>3. Backend Technologies</h2>
+<br>
+<h3>3.1 Django Framework</h3>
+<p><strong>What it is<strong>: Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.</p>
+<br>
+<p><strong>Why we use it<strong>:</p>
+<li>**ORM (Object-Relational Mapping)**: Simplifies database operations</li>
+<li>**Admin Interface**: Automatic admin panel for data management</li>
+<li>**Security**: Built-in protection against common vulnerabilities</li>
+<li>**Scalability**: Handles high traffic efficiently</li>
+<br>
+<p><strong>Key Django Components in Our Project<strong>:</p>
+<br>
+<h4>3.1.1 Models (`recommendations/models.py`)</h4>
+<pre><code class="python">
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    category = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+</code></pre>
+<p><strong>Explanation<strong>: Models define database table structure using Python classes.</p>
+<br>
+<h4>3.1.2 Views (`recommendations/views.py`)</h4>
+<pre><code class="python">
+class RecommendationsAPIView(APIView):
+    def get(self, request, user_id):
+        # Get personalized recommendations
+        recommendations = recommendation_engine.get_recommendations(user_id)
+        return Response(recommendations)
+</code></pre>
+<p><strong>Explanation<strong>: Views handle HTTP requests and return responses.</p>
+<br>
+<h4>3.1.3 URLs (`recommendations/urls.py`)</h4>
+<pre><code class="python">
+urlpatterns = [
+    path('recommendations/&lt;int:user_id&gt;/', views.RecommendationsAPIView.as_view()),
+    path('interaction/', views.InteractionAPIView.as_view()),
+]
+</code></pre>
+<p><strong>Explanation<strong>: URLs route incoming requests to appropriate views.</p>
+<br>
+<h3>3.2 Django REST Framework (DRF)</h3>
+<p><strong>What it is<strong>: A powerful toolkit for building Web APIs in Django.</p>
+<br>
+<p><strong>Features we use<strong>:</p>
+<li>**Serializers**: Convert complex data types to JSON</li>
+<li>**ViewSets**: Organize view logic</li>
+<li>**Permissions**: Control API access</li>
+<li>**Pagination**: Handle large datasets efficiently</li>
+<br>
+<p><strong>Example Serializer<strong>:</p>
+<pre><code class="python">
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'category', 'price', 'description']
+</code></pre>
+<br>
+<h3>3.3 Database Layer</h3>
+<br>
+<h4>SQLite (Development)</h4>
+<li>**File-based database**: Stored in `db.sqlite3`</li>
+<li>**No server required**: Perfect for development</li>
+<li>**ACID compliant**: Ensures data integrity</li>
+<li>**Zero configuration**: Works out of the box</li>
+<br>
+<h4>PostgreSQL (Production)</h4>
+<li>**Production-grade**: Handles millions of records</li>
+<li>**Advanced features**: Full-text search, JSON support</li>
+<li>**Scalable**: Supports read replicas, sharding</li>
+<li>**ACID compliant**: Enterprise-level data integrity</li>
+<br>
+<h3>3.4 Caching with Redis (Optional)</h3>
+<p><strong>What it is<strong>: In-memory data structure store used as cache.</p>
+<br>
+<p><strong>How we use it<strong>:</p>
+<pre><code class="python">
+from django.core.cache import cache
+
+# Store recommendations in cache
+cache.set(f'recommendations_user_{user_id}', recommendations, timeout=1800)
+
+# Retrieve from cache
+cached_data = cache.get(f'recommendations_user_{user_id}')
+</code></pre>
+<br>
+<p><strong>Benefits<strong>:</p>
+<li>**Speed**: Sub-millisecond response times</li>
+<li>**Reduced database load**: Fewer queries to database</li>
+<li>**Scalability**: Handles high concurrent users</li>
+<br>
+<p>---</p>
+<br>
+<h2>4. Frontend Technologies</h2>
+<br>
+<h3>4.1 React 18</h3>
+<p><strong>What it is<strong>: A JavaScript library for building user interfaces.</p>
+<br>
+<p><strong>Why React<strong>:</p>
+<li>**Component-Based**: Reusable UI components</li>
+<li>**Virtual DOM**: Efficient rendering</li>
+<li>**State Management**: Reactive data flow</li>
+<li>**Large Ecosystem**: Extensive package library</li>
+<br>
+<h3>4.2 Key React Concepts in Our Project</h3>
+<br>
+<h4>4.2.1 Components (`frontend/src/App.js`)</h4>
+<pre><code class="javascript">
+const ProductCard = ({ product, isRecommendation = false }) =&gt; (
+  &lt;div className="product-card"&gt;
+    &lt;h3&gt;{product.name}&lt;/h3&gt;
+    &lt;p&gt;{product.category}&lt;/p&gt;
+    &lt;span&gt;${product.price}&lt;/span&gt;
+    {isRecommendation &amp;&amp; (
+      &lt;div className="ai-score"&gt;
+        AI Score: {Math.round(product.confidence_score * 100)}%
+      &lt;/div&gt;
+    )}
+  &lt;/div&gt;
+);
+</code></pre>
+<br>
+<h4>4.2.2 State Management</h4>
+<pre><code class="javascript">
+const [recommendations, setRecommendations] = useState([]);
+const [loading, setLoading] = useState(false);
+const [currentUser, setCurrentUser] = useState(null);
+</code></pre>
+<br>
+<h4>4.2.3 API Integration</h4>
+<pre><code class="javascript">
+const fetchRecommendations = async (userId) =&gt; {
+  setLoading(true);
+  try {
+    const response = await fetch(`/api/recommendations/${userId}/`);
+    const data = await response.json();
+    setRecommendations(data.recommendations);
+  } catch (error) {
+    console.error('Error fetching recommendations:', error);
+  } finally {
+    setLoading(false);
+  }
+};
+</code></pre>
+<br>
+<h3>4.3 CSS & Styling</h3>
+<p><strong>Tailwind CSS<strong>: Utility-first CSS framework</p>
+<pre><code class="javascript">
+&lt;div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"&gt;
+  &lt;h3 className="font-semibold text-gray-800 text-lg mb-1"&gt;{product.name}&lt;/h3&gt;
+  &lt;p className="text-sm text-gray-500"&gt;{product.category}&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<br>
+<p><strong>Benefits<strong>:</p>
+<li>**Rapid development**: Pre-built utility classes</li>
+<li>**Consistent design**: Standardized spacing, colors</li>
+<li>**Responsive**: Mobile-first approach</li>
+<li>**Small bundle size**: Only includes used styles</li>
+<br>
+<p>---</p>
+<br>
+<h2>5. Machine Learning Components</h2>
+<br>
+<h3>5.1 Recommendation Algorithms</h3>
+<br>
+<h4>5.1.1 Collaborative Filtering</h4>
+<p><strong>What it is<strong>: Recommends items based on user behavior patterns.</p>
+<br>
+<p><strong>How it works<strong>:</p>
+<li>**User-Item Matrix**: Create matrix of user interactions</li>
+<p>2. <strong>Similarity Calculation<strong>: Find users with similar preferences</p>
+<p>3. <strong>Prediction<strong>: Recommend items liked by similar users</p>
+<br>
+<p><strong>Code Implementation<strong>:</p>
+<pre><code class="python">
+class CollaborativeFilteringModel:
+    def __init__(self, n_components=50):
+        self.model = TruncatedSVD(n_components=n_components, random_state=42)
+        self.user_item_matrix = None
+    
+    def train(self, df):
+        # Create user-item interaction matrix
+        interaction_matrix = self.prepare_data(df)
+        
+        # Fit SVD model
+        self.model.fit(interaction_matrix)
+        
+    def predict_user_preferences(self, user_id, product_ids):
+        # Transform user-item matrix
+        user_features = self.model.transform(self.user_item_matrix)
+        product_features = self.model.components_.T
+        
+        # Calculate scores for each product
+        scores = []
+        for product_id in product_ids:
+            score = np.dot(user_vector, product_vector)
+            scores.append(score)
+        
+        return scores
+</code></pre>
+<br>
+<h4>5.1.2 Matrix Factorization</h4>
+<p><strong>What it is<strong>: Decomposes user-item matrix into user and item factors.</p>
+<br>
+<p><strong>Mathematical Foundation<strong>:</p>
+<pre><code class="">
+R ≈ U × V^T
+Where:
+R = User-Item Rating Matrix (m×n)
+U = User Factor Matrix (m×k)
+V = Item Factor Matrix (n×k)
+k = Number of latent factors
+</code></pre>
+<br>
+<p><strong>Implementation<strong>:</p>
+<pre><code class="python">
+class MatrixFactorizationModel:
+    def fit(self, df, epochs=20):
+        # Initialize factors randomly
+        self.user_factors = np.random.normal(0, 0.1, (n_users, self.n_factors))
+        self.item_factors = np.random.normal(0, 0.1, (n_items, self.n_factors))
+        
+        # SGD training
+        for epoch in range(epochs):
+            for user_idx, item_idx, rating in training_data:
+                # Predict rating
+                prediction = self.predict_single(user_idx, item_idx)
+                error = rating - prediction
+                
+                # Update factors using gradient descent
+                user_factor = self.user_factors[user_idx].copy()
+                item_factor = self.item_factors[item_idx].copy()
+                
+                self.user_factors[user_idx] += learning_rate * (
+                    error * item_factor - regularization * user_factor
+                )
+                self.item_factors[item_idx] += learning_rate * (
+                    error * user_factor - regularization * item_factor
+                )
+</code></pre>
+<br>
+<h3>5.2 Feature Engineering</h3>
+<br>
+<h4>5.2.1 User Interaction Scoring</h4>
+<pre><code class="python">
+score_map = {
+    'view': 1,      # Basic interaction
+    'like': 2,      # Positive signal
+    'cart': 3,      # Strong intent
+    'purchase': 5   # Strongest signal
+}
+</code></pre>
+<br>
+<h4>5.2.2 Time Decay</h4>
+<pre><code class="python">
+def apply_time_decay(score, timestamp, decay_factor=0.1):
+    """Apply time decay to interaction scores"""
+    days_ago = (now - timestamp).days
+    decayed_score = score * np.exp(-decay_factor * days_ago)
+    return decayed_score
+</code></pre>
+<br>
+<h3>5.3 Model Ensemble</h3>
+<p><strong>Combining multiple algorithms for better performance<strong>:</p>
+<br>
+<pre><code class="python">
+def get_ensemble_recommendations(user_id, num_recommendations=10):
+    # Get predictions from different models
+    cf_scores = collaborative_model.predict(user_id, candidate_products)
+    mf_scores = matrix_factorization_model.predict(user_id, candidate_products)
+    
+    # Weighted ensemble
+    ensemble_scores = 0.7 * cf_scores + 0.3 * mf_scores
+    
+    # Rank and return top recommendations
+    top_indices = np.argsort(ensemble_scores)[::-1][:num_recommendations]
+    return [candidate_products[i] for i in top_indices]
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>6. Database Design</h2>
+<br>
+<h3>6.1 Entity Relationship Diagram</h3>
+<pre><code class="">
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│      User       │    │  UserBehavior   │    │    Product      │
+│                 │    │                 │    │                 │
+│ • id (PK)       │◄──►│ • id (PK)       │◄──►│ • id (PK)       │
+│ • username      │    │ • user_id (FK)  │    │ • name          │
+│ • email         │    │ • product_id(FK)│    │ • description   │
+│ • password      │    │ • interaction   │    │ • category      │
+│ • date_joined   │    │ • rating        │    │ • price         │
+└─────────────────┘    │ • timestamp     │    │ • created_at    │
+                       │ • session_id    │    └─────────────────┘
+                       └─────────────────┘
+                               │
+                               ▼
+                    ┌─────────────────┐
+                    │ UserProfile     │
+                    │                 │
+                    │ • user_id (FK)  │
+                    │ • preferences   │
+                    │ • embedding     │
+                    │ • last_updated  │
+                    └─────────────────┘
+</code></pre>
+<br>
+<h3>6.2 Table Schemas</h3>
+<br>
+<h4>6.2.1 Products Table</h4>
+<pre><code class="sql">
+CREATE TABLE products (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name VARCHAR(200) NOT NULL,
+    description TEXT,
+    category VARCHAR(100),
+    price DECIMAL(10,2),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+</code></pre>
+<br>
+<h4>6.2.2 User Behavior Table</h4>
+<pre><code class="sql">
+CREATE TABLE user_behavior (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id),
+    product_id INTEGER REFERENCES products(id),
+    interaction_type VARCHAR(20) CHECK (interaction_type IN ('view', 'like', 'cart', 'purchase')),
+    rating FLOAT,
+    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+    session_id VARCHAR(100)
+);
+
+-- Indexes for performance
+CREATE INDEX idx_user_behavior_user ON user_behavior(user_id);
+CREATE INDEX idx_user_behavior_product ON user_behavior(product_id);
+CREATE INDEX idx_user_behavior_timestamp ON user_behavior(timestamp);
+</code></pre>
+<br>
+<h3>6.3 Data Models in Django</h3>
+<br>
+<h4>6.3.1 Product Model</h4>
+<pre><code class="python">
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField()
+    category = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['category']),
+            models.Index(fields=['price']),
+        ]
+    
+    def __str__(self):
+        return self.name
+</code></pre>
+<br>
+<h4>6.3.2 User Behavior Model</h4>
+<pre><code class="python">
+class UserBehavior(models.Model):
+    INTERACTION_TYPES = [
+        ('view', 'View'),
+        ('like', 'Like'),
+        ('cart', 'Add to Cart'),
+        ('purchase', 'Purchase'),
+    ]
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    interaction_type = models.CharField(max_length=20, choices=INTERACTION_TYPES)
+    rating = models.FloatField(null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    session_id = models.CharField(max_length=100, null=True, blank=True)
+    
+    class Meta:
+        indexes = [
+            models.Index(fields=['user', 'product']),
+            models.Index(fields=['timestamp']),
+        ]
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>7. API Endpoints</h2>
+<br>
+<h3>7.1 RESTful API Design Principles</h3>
+<br>
+<p><strong>REST (Representational State Transfer)<strong> principles:</p>
+<li>**Stateless**: Each request contains all necessary information</li>
+<li>**Cacheable**: Responses can be cached for performance</li>
+<li>**Uniform Interface**: Consistent URL structure</li>
+<li>**Resource-Based**: URLs represent resources, not actions</li>
+<br>
+<h3>7.2 API Endpoint Documentation</h3>
+<br>
+<h4>7.2.1 Get Recommendations</h4>
+<pre><code class="http">
+GET /api/recommendations/{user_id}/
+</code></pre>
+<br>
+<p><strong>Parameters<strong>:</p>
+<li>`user_id` (int): User ID to get recommendations for</li>
+<li>`count` (int, optional): Number of recommendations (default: 10)</li>
+<br>
+<p><strong>Response<strong>:</p>
+<pre><code class="json">
+{
+  "user_id": 1,
+  "recommendations": [
+    {
+      "product_id": 5,
+      "product_name": "Wireless Headphones",
+      "category": "Electronics",
+      "price": 99.99,
+      "confidence_score": 0.85,
+      "cf_score": 0.7,
+      "mf_score": 0.3
+    }
+  ],
+  "count": 10
+}
+</code></pre>
+<br>
+<p><strong>Implementation<strong>:</p>
+<pre><code class="python">
+class RecommendationsAPIView(APIView):
+    def get(self, request, user_id):
+        try:
+            count = int(request.query_params.get('count', 10))
+            
+            # Get recommendations from ML engine
+            recommendations = recommendation_engine.get_recommendations(
+                user_id, num_recommendations=count
+            )
+            
+            return Response({
+                'user_id': user_id,
+                'recommendations': recommendations,
+                'count': len(recommendations)
+            }, status=status.HTTP_200_OK)
+            
+        except Exception as e:
+            return Response(
+                {'error': str(e)}, 
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+</code></pre>
+<br>
+<h4>7.2.2 Record User Interaction</h4>
+<pre><code class="http">
+POST /api/interaction/
+</code></pre>
+<br>
+<p><strong>Request Body<strong>:</p>
+<pre><code class="json">
+{
+  "user_id": 1,
+  "product_id": 5,
+  "interaction_type": "view",
+  "rating": 4.5
+}
+</code></pre>
+<br>
+<p><strong>Response<strong>:</p>
+<pre><code class="json">
+{
+  "message": "Interaction recorded successfully"
+}
+</code></pre>
+<br>
+<p><strong>Implementation<strong>:</p>
+<pre><code class="python">
+class InteractionAPIView(APIView):
+    def post(self, request):
+        try:
+            user_id = request.data.get('user_id')
+            product_id = request.data.get('product_id')
+            interaction_type = request.data.get('interaction_type')
+            rating = request.data.get('rating')
+            
+            # Validate required fields
+            if not all([user_id, product_id, interaction_type]):
+                return Response(
+                    {'error': 'user_id, product_id, and interaction_type are required'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            # Record interaction
+            UserBehavior.objects.create(
+                user_id=user_id,
+                product_id=product_id,
+                interaction_type=interaction_type,
+                rating=rating
+            )
+            
+            # Update recommendations asynchronously
+            recommendation_engine.record_interaction(user_id, product_id, interaction_type)
+            
+            return Response(
+                {'message': 'Interaction recorded successfully'},
+                status=status.HTTP_201_CREATED
+            )
+            
+        except Exception as e:
+            return Response(
+                {'error': str(e)},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+</code></pre>
+<br>
+<h4>7.2.3 Search Products</h4>
+<pre><code class="http">
+GET /api/search/?q=electronics&amp;user_id=1
+</code></pre>
+<br>
+<p><strong>Parameters<strong>:</p>
+<li>`q` (string): Search query</li>
+<li>`user_id` (int, optional): User ID for personalization</li>
+<br>
+<p><strong>Response<strong>:</p>
+<pre><code class="json">
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smartphone Pro",
+      "category": "Electronics",
+      "price": 699.99,
+      "description": "Latest smartphone...",
+      "personalization_score": 0.75
+    }
+  ],
+  "count": 1
+}
+</code></pre>
+<br>
+<h3>7.3 HTTP Status Codes</h3>
+<br>
+<tr><td>Code</td><td>Meaning</td><td>When to Use</td></tr>
+<tr><td>200</td><td>OK</td><td>Successful GET request</td></tr>
+<tr><td>201</td><td>Created</td><td>Successful POST request (resource created)</td></tr>
+<tr><td>400</td><td>Bad Request</td><td>Invalid request data</td></tr>
+<tr><td>404</td><td>Not Found</td><td>Resource doesn't exist</td></tr>
+<tr><td>405</td><td>Method Not Allowed</td><td>Wrong HTTP method</td></tr>
+<tr><td>500</td><td>Internal Server Error</td><td>Server-side error</td></tr>
+<br>
+<h3>7.4 Error Handling</h3>
+<pre><code class="python">
+def handle_api_error(view_func):
+    """Decorator for consistent error handling"""
+    def wrapper(*args, **kwargs):
+        try:
+            return view_func(*args, **kwargs)
+        except ValidationError as e:
+            return Response(
+                {'error': 'Validation failed', 'details': str(e)},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except ObjectDoesNotExist as e:
+            return Response(
+                {'error': 'Resource not found', 'details': str(e)},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        except Exception as e:
+            logger.error(f"Unexpected error in {view_func.__name__}: {str(e)}")
+            return Response(
+                {'error': 'Internal server error'},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+    return wrapper
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>8. Deployment & DevOps</h2>
+<br>
+<h3>8.1 Docker Containerization</h3>
+<br>
+<h4>8.1.1 Backend Dockerfile</h4>
+<pre><code class="dockerfile">
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update &amp;&amp; apt-get install -y \
+    postgresql-client \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 8000
+
+# Run application
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+</code></pre>
+<br>
+<h4>8.1.2 Frontend Dockerfile</h4>
+<pre><code class="dockerfile">
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Build application
+RUN npm run build
+
+# Serve with nginx
+FROM nginx:alpine
+COPY --from=0 /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+</code></pre>
+<br>
+<h3>8.2 Docker Compose</h3>
+<p><strong>Purpose<strong>: Orchestrate multiple containers together</p>
+<br>
+<pre><code class="yaml">
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: ecommerce_rec
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  # Redis Cache
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  # Django Backend
+  backend:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/ecommerce_rec
+      - REDIS_URL=redis://redis:6379/0
+
+  # React Frontend
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+
+volumes:
+  postgres_data:
+</code></pre>
+<br>
+<h3>8.3 Environment Configuration</h3>
+<br>
+<h4>8.3.1 Development Settings (`settings_dev.py`)</h4>
+<pre><code class="python">
+DEBUG = True
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+# Simplified cache for development
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+</code></pre>
+<br>
+<h4>8.3.2 Production Settings (`settings_prod.py`)</h4>
+<pre><code class="python">
+DEBUG = False
+ALLOWED_HOSTS = ['your-domain.com', 'api.your-domain.com']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
+    }
+}
+
+# Redis cache for production
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': os.environ.get('REDIS_URL'),
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
+# Security settings
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+</code></pre>
+<br>
+<h3>8.4 Deployment Options</h3>
+<br>
+<h4>8.4.1 Local Development</h4>
+<pre><code class="bash">
+# Start with Docker Compose
+docker-compose up --build
+
+# Or run manually
+python manage.py runserver  # Backend
+npm start                   # Frontend (separate terminal)
+</code></pre>
+<br>
+<h4>8.4.2 Cloud Deployment (AWS Example)</h4>
+<pre><code class="bash">
+# Build and push to ECR
+aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin &lt;account&gt;.dkr.ecr.us-west-2.amazonaws.com
+
+docker build -t ecommerce-api .
+docker tag ecommerce-api:latest &lt;account&gt;.dkr.ecr.us-west-2.amazonaws.com/ecommerce-api:latest
+docker push &lt;account&gt;.dkr.ecr.us-west-2.amazonaws.com/ecommerce-api:latest
+
+# Deploy with ECS or Kubernetes
+kubectl apply -f kubernetes-deployment.yaml
+</code></pre>
+<br>
+<h4>8.4.3 Platform-as-a-Service (Heroku Example)</h4>
+<pre><code class="bash">
+# Install Heroku CLI and login
+heroku login
+
+# Create app
+heroku create your-ecommerce-app
+
+# Add PostgreSQL
+heroku addons:create heroku-postgresql:hobby-dev
+
+# Add Redis
+heroku addons:create heroku-redis:hobby-dev
+
+# Deploy
+git push heroku main
+
+# Run migrations
+heroku run python manage.py migrate
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>9. Code Structure & Files</h2>
+<br>
+<h3>9.1 Project Directory Structure</h3>
+<pre><code class="">
+E-Commerce Recommendation Engine/
+├── ecommerce_rec/              # Django project settings
+│   ├── __init__.py
+│   ├── settings.py             # Main settings
+│   ├── settings_dev.py         # Development settings
+│   ├── urls.py                 # URL routing
+│   ├── wsgi.py                 # WSGI application
+│   └── asgi.py                 # ASGI application
+├── recommendations/            # Main Django app
+│   ├── models.py               # Database models
+│   ├── views.py                # API views
+│   ├── urls.py                 # App URLs
+│   ├── admin.py                # Admin interface
+│   ├── recommendation_engine.py # ML recommendation logic
+│   ├── ml_models_simple.py     # Lightweight ML models
+│   ├── simple_engine.py        # Simple recommendation engine
+│   ├── management/             # Django commands
+│   │   └── commands/
+│   │       └── populate_sample_data.py
+│   └── migrations/             # Database migrations
+├── frontend/                   # React application
+│   ├── public/
+│   │   └── index.html          # HTML template
+│   ├── src/
+│   │   ├── App.js              # Main React component
+│   │   ├── index.js            # Entry point
+│   │   ├── index.css           # Global styles
+│   │   ├── components/         # React components
+│   │   └── services/           # API service layer
+│   ├── package.json            # Node.js dependencies
+│   └── Dockerfile              # Frontend container
+├── requirements.txt            # Python dependencies
+├── docker-compose.yml          # Development orchestration
+├── docker-compose.prod.yml     # Production orchestration
+├── Dockerfile                  # Backend container
+├── .dockerignore              # Docker ignore file
+├── manage.py                  # Django management script
+└── db.sqlite3                 # SQLite database (dev)
+</code></pre>
+<br>
+<h3>9.2 Key File Explanations</h3>
+<br>
+<h4>9.2.1 `manage.py`</h4>
+<p><strong>Purpose<strong>: Django's command-line utility for administrative tasks</p>
+<pre><code class="python">
+#!/usr/bin/env python
+import os
+import sys
+
+if __name__ == '__main__':
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecommerce_rec.settings')
+    
+    from django.core.management import execute_from_command_line
+    execute_from_command_line(sys.argv)
+</code></pre>
+<br>
+<p><strong>Common Commands<strong>:</p>
+<pre><code class="bash">
+python manage.py runserver          # Start development server
+python manage.py makemigrations     # Create database migrations
+python manage.py migrate            # Apply database migrations
+python manage.py createsuperuser    # Create admin user
+python manage.py collectstatic      # Collect static files for production
+python manage.py shell              # Open Django shell
+</code></pre>
+<br>
+<h4>9.2.2 `requirements.txt`</h4>
+<p><strong>Purpose<strong>: Lists all Python dependencies</p>
+<pre><code class="">
+Django==4.2.7                  # Web framework
+djangorestframework==3.14.0    # API framework
+django-cors-headers==4.3.1     # CORS handling
+django-redis==5.3.0           # Redis integration
+psycopg2-binary==2.9.7        # PostgreSQL adapter
+redis==4.6.0                  # Redis client
+scikit-learn==1.3.0           # Machine learning
+pandas==2.0.3                 # Data manipulation
+numpy==1.24.3                 # Numerical computing
+celery==5.3.4                 # Task queue
+pillow==10.0.0                # Image processing
+Faker==19.6.2                 # Generate fake data
+</code></pre>
+<br>
+<h4>9.2.3 `package.json` (Frontend)</h4>
+<p><strong>Purpose<strong>: Node.js project configuration and dependencies</p>
+<pre><code class="json">
+{
+  "name": "ecommerce-recommendation-frontend",
+  "version": "1.0.0",
+  "dependencies": {
+    "react": "^18.2.0",           // UI library
+    "react-dom": "^18.2.0",       // DOM renderer
+    "react-scripts": "5.0.1",     // Build tools
+    "lucide-react": "^0.263.1"    // Icon library
+  },
+  "scripts": {
+    "start": "react-scripts start",     // Development server
+    "build": "react-scripts build",     // Production build
+    "test": "react-scripts test",       // Run tests
+    "eject": "react-scripts eject"      // Eject from CRA
+  },
+  "proxy": "http://localhost:8000"      // Proxy API requests
+}
+</code></pre>
+<br>
+<h3>9.3 Configuration Files</h3>
+<br>
+<h4>9.3.1 `.dockerignore`</h4>
+<p><strong>Purpose<strong>: Exclude files from Docker build context</p>
+<pre><code class="">
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Node modules
+node_modules/
+npm-debug.log*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Database files
+*.db
+*.sqlite3
+dump.rdb
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+*.md
+docs/
+</code></pre>
+<br>
+<h4>9.3.2 Database Migrations</h4>
+<p><strong>Purpose<strong>: Version control for database schema changes</p>
+<br>
+<p><strong>Example Migration<strong> (<code>0001_initial.py<code>):</p>
+<pre><code class="python">
+from django.db import migrations, models
+import django.db.models.deletion
+
+class Migration(migrations.Migration):
+    initial = True
+    
+    dependencies = [
+        ('auth', '0012_alter_user_first_name_max_length'),
+    ]
+    
+    operations = [
+        migrations.CreateModel(
+            name='Product',
+            fields=[
+                ('id', models.BigAutoField(primary_key=True)),
+                ('name', models.CharField(max_length=200)),
+                ('description', models.TextField()),
+                ('category', models.CharField(max_length=100)),
+                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
+                ('created_at', models.DateTimeField(auto_now_add=True)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='UserBehavior',
+            fields=[
+                ('id', models.BigAutoField(primary_key=True)),
+                ('interaction_type', models.CharField(max_length=20)),
+                ('rating', models.FloatField(blank=True, null=True)),
+                ('timestamp', models.DateTimeField(auto_now_add=True)),
+                ('session_id', models.CharField(blank=True, max_length=100, null=True)),
+                ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='recommendations.product')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='auth.user')),
+            ],
+        ),
+    ]
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>10. How Everything Works Together</h2>
+<br>
+<h3>10.1 Complete User Journey</h3>
+<br>
+<h4>Step 1: User Opens Application</h4>
+<pre><code class="">
+1. User visits http://localhost:3000/
+2. React app loads in browser
+3. App makes initial API call to fetch popular products
+4. Django receives request, queries database
+5. Returns JSON response with product data
+6. React renders product grid
+</code></pre>
+<br>
+<h4>Step 2: User Interacts with Product</h4>
+<pre><code class="">
+1. User clicks "View" button on product
+2. JavaScript event handler triggered
+3. AJAX POST request sent to /api/interaction/
+4. Django InteractionAPIView processes request
+5. UserBehavior record created in database
+6. Cache invalidated for user's recommendations
+7. Success response sent back to frontend
+</code></pre>
+<br>
+<h4>Step 3: AI Generates Recommendations</h4>
+<pre><code class="">
+1. User requests recommendations
+2. Django RecommendationsAPIView called
+3. RecommendationEngine.get_recommendations() invoked
+4. Check cache for existing recommendations
+5. If not cached, ML models generate predictions:
+   a. Collaborative Filtering analyzes user similarity
+   b. Matrix Factorization computes latent factors
+   c. Ensemble combines multiple algorithm scores
+6. Top-N products selected and scored
+7. Results cached for future requests
+8. JSON response with recommendations returned
+9. React updates UI with personalized suggestions
+</code></pre>
+<br>
+<h3>10.2 Data Flow Diagram</h3>
+<pre><code class="">
+┌─────────────┐    HTTP Request    ┌─────────────┐    Query    ┌─────────────┐
+│   React     │ ──────────────────► │   Django    │ ──────────► │  Database   │
+│  Frontend   │                    │   Backend   │             │  (SQLite)   │
+│             │ ◄────────────────── │             │ ◄────────── │             │
+└─────────────┘    JSON Response   └─────────────┘   Results   └─────────────┘
+       │                                   │                           ▲
+       │                                   ▼                           │
+       │                           ┌─────────────┐                     │
+       │                           │     ML      │                     │
+       │                           │   Engine    │─────────────────────┘
+       │                           │             │    Read User Data
+       │                           └─────────────┘
+       │                                   │
+       │                                   ▼
+       │                           ┌─────────────┐
+       │                           │    Redis    │
+       └───────────────────────────│    Cache    │
+         Cached Recommendations    │             │
+                                   └─────────────┘
+</code></pre>
+<br>
+<h3>10.3 Request/Response Cycle</h3>
+<br>
+<h4>Example: Getting Recommendations</h4>
+<br>
+<p><strong>1. Frontend Request<strong>:</p>
+<pre><code class="javascript">
+// React component
+const fetchRecommendations = async (userId) =&gt; {
+  try {
+    const response = await fetch(`/api/recommendations/${userId}/`);
+    const data = await response.json();
+    setRecommendations(data.recommendations);
+  } catch (error) {
+    console.error('Failed to fetch recommendations:', error);
+  }
+};
+</code></pre>
+<br>
+<p><strong>2. Django URL Routing<strong>:</p>
+<pre><code class="python">
+# urls.py
+urlpatterns = [
+    path('recommendations/&lt;int:user_id&gt;/', views.RecommendationsAPIView.as_view()),
+]
+</code></pre>
+<br>
+<p><strong>3. View Processing<strong>:</p>
+<pre><code class="python">
+# views.py
+class RecommendationsAPIView(APIView):
+    def get(self, request, user_id):
+        # Validate user exists
+        try:
+            user = User.objects.get(id=user_id)
+        except User.DoesNotExist:
+            return Response({'error': 'User not found'}, status=404)
+        
+        # Get recommendations from ML engine
+        recommendations = recommendation_engine.get_recommendations(user_id)
+        
+        return Response({
+            'user_id': user_id,
+            'recommendations': recommendations,
+            'count': len(recommendations)
+        })
+</code></pre>
+<br>
+<p><strong>4. ML Engine Processing<strong>:</p>
+<pre><code class="python">
+# recommendation_engine.py
+def get_recommendations(self, user_id, num_recommendations=10):
+    # Check cache first
+    cache_key = f"recommendations_user_{user_id}_{num_recommendations}"
+    cached = cache.get(cache_key)
+    if cached:
+        return cached
+    
+    # Get user interaction history
+    user_interactions = UserBehavior.objects.filter(user_id=user_id)
+    
+    # Find candidate products (not yet interacted with)
+    interacted_products = user_interactions.values_list('product_id', flat=True)
+    candidates = Product.objects.exclude(id__in=interacted_products)
+    
+    # Run ML algorithms
+    cf_scores = self.collaborative_filtering_model.predict(user_id, candidates)
+    mf_scores = self.matrix_factorization_model.predict(user_id, candidates)
+    
+    # Combine scores with weighted ensemble
+    final_scores = 0.7 * cf_scores + 0.3 * mf_scores
+    
+    # Rank and select top N
+    ranked_products = sorted(zip(candidates, final_scores), 
+                           key=lambda x: x[1], reverse=True)
+    top_products = ranked_products[:num_recommendations]
+    
+    # Format response
+    recommendations = []
+    for product, score in top_products:
+        recommendations.append({
+            'product_id': product.id,
+            'product_name': product.name,
+            'category': product.category,
+            'price': float(product.price),
+            'confidence_score': float(score)
+        })
+    
+    # Cache results
+    cache.set(cache_key, recommendations, timeout=1800)
+    
+    return recommendations
+</code></pre>
+<br>
+<p><strong>5. Database Queries<strong>:</p>
+<pre><code class="sql">
+-- Get user interactions
+SELECT product_id, interaction_type, rating, timestamp 
+FROM user_behavior 
+WHERE user_id = 1 
+ORDER BY timestamp DESC;
+
+-- Get candidate products
+SELECT id, name, category, price 
+FROM products 
+WHERE id NOT IN (
+    SELECT DISTINCT product_id 
+    FROM user_behavior 
+    WHERE user_id = 1
+);
+</code></pre>
+<br>
+<p><strong>6. Response Back to Frontend<strong>:</p>
+<pre><code class="json">
+{
+  "user_id": 1,
+  "recommendations": [
+    {
+      "product_id": 5,
+      "product_name": "Wireless Bluetooth Headphones",
+      "category": "Electronics",
+      "price": 99.99,
+      "confidence_score": 0.85
+    },
+    {
+      "product_id": 12,
+      "product_name": "Smart Fitness Watch",
+      "category": "Electronics", 
+      "price": 199.99,
+      "confidence_score": 0.78
+    }
+  ],
+  "count": 2
+}
+</code></pre>
+<br>
+<h3>10.4 Performance Optimizations</h3>
+<br>
+<h4>10.4.1 Caching Strategy</h4>
+<pre><code class="python">
+# Multi-layer caching
+class CachedRecommendationEngine:
+    def get_recommendations(self, user_id, num_recommendations=10):
+        # L1: Memory cache (fastest)
+        memory_key = f"mem_rec_{user_id}_{num_recommendations}"
+        if memory_key in self.memory_cache:
+            return self.memory_cache[memory_key]
+        
+        # L2: Redis cache (fast)
+        redis_key = f"redis_rec_{user_id}_{num_recommendations}"
+        cached = cache.get(redis_key)
+        if cached:
+            self.memory_cache[memory_key] = cached
+            return cached
+        
+        # L3: Database + ML computation (slow)
+        recommendations = self._compute_recommendations(user_id, num_recommendations)
+        
+        # Store in all cache layers
+        cache.set(redis_key, recommendations, timeout=1800)
+        self.memory_cache[memory_key] = recommendations
+        
+        return recommendations
+</code></pre>
+<br>
+<h4>10.4.2 Database Indexing</h4>
+<pre><code class="python">
+# models.py - Strategic indexes for performance
+class UserBehavior(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_index=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, db_index=True)
+    timestamp = models.DateTimeField(auto_now_add=True, db_index=True)
+    
+    class Meta:
+        indexes = [
+            # Compound index for common query patterns
+            models.Index(fields=['user', 'timestamp']),
+            models.Index(fields=['product', 'interaction_type']),
+            models.Index(fields=['user', 'product', 'timestamp']),
+        ]
+</code></pre>
+<br>
+<h4>10.4.3 Asynchronous Processing</h4>
+<pre><code class="python">
+# tasks.py - Background tasks with Celery
+from celery import shared_task
+
+@shared_task
+def retrain_models():
+    """Retrain ML models in background"""
+    engine = RecommendationEngine()
+    engine.train_models()
+    
+    # Invalidate all recommendation caches
+    cache.delete_pattern("recommendations_*")
+
+@shared_task  
+def precompute_recommendations(user_id):
+    """Precompute recommendations for active users"""
+    engine = RecommendationEngine()
+    recommendations = engine.get_recommendations(user_id)
+    
+    # Store in cache for instant access
+    cache_key = f"recommendations_user_{user_id}_10"
+    cache.set(cache_key, recommendations, timeout=3600)
+</code></pre>
+<br>
+<p>---</p>
+<br>
+<h2>11. Learning Path & Next Steps</h2>
+<br>
+<h3>11.1 Foundational Concepts to Master</h3>
+<br>
+<h4>11.1.1 Web Development Fundamentals</h4>
+<li>**HTTP Protocol**</li>
+<p>   - Request/Response cycle</p>
+<p>   - Status codes (200, 404, 500, etc.)</p>
+<p>   - Headers and body</p>
+<p>   - REST principles</p>
+<br>
+<p>2. <strong>Database Concepts<strong></p>
+<p>   - Relational databases (tables, relationships)</p>
+<p>   - SQL queries (SELECT, INSERT, UPDATE, DELETE)</p>
+<p>   - Indexing for performance</p>
+<p>   - Transactions and ACID properties</p>
+<br>
+<p>3. <strong>API Design<strong></p>
+<p>   - RESTful conventions</p>
+<p>   - JSON data format</p>
+<p>   - Authentication and authorization</p>
+<p>   - Error handling</p>
+<br>
+<h4>11.1.2 Python & Django</h4>
+<li>**Python Basics**</li>
+<p>   - Object-oriented programming</p>
+<p>   - List comprehensions</p>
+<p>   - Decorators and context managers</p>
+<p>   - Exception handling</p>
+<br>
+<p>2. <strong>Django Framework<strong></p>
+<p>   - Models, Views, Templates (MVT pattern)</p>
+<p>   - ORM (Object-Relational Mapping)</p>
+<p>   - Middleware and signals</p>
+<p>   - Authentication system</p>
+<br>
+<p>3. <strong>Django REST Framework<strong></p>
+<p>   - Serializers</p>
+<p>   - ViewSets and Generic Views</p>
+<p>   - Permissions and throttling</p>
+<p>   - Pagination</p>
+<br>
+<h4>11.1.3 JavaScript & React</h4>
+<li>**Modern JavaScript (ES6+)**</li>
+<p>   - Arrow functions and destructuring</p>
+<p>   - Promises and async/await</p>
+<p>   - Modules (import/export)</p>
+<p>   - Array methods (map, filter, reduce)</p>
+<br>
+<p>2. <strong>React Fundamentals<strong></p>
+<p>   - Components and JSX</p>
+<p>   - State and props</p>
+<p>   - Hooks (useState, useEffect, useCallback)</p>
+<p>   - Event handling</p>
+<br>
+<p>3. <strong>React Ecosystem<strong></p>
+<p>   - Create React App</p>
+<p>   - Package management with npm</p>
+<p>   - Component libraries</p>
+<p>   - State management (Context API, Redux)</p>
+<br>
+<h4>11.1.4 Machine Learning Basics</h4>
+<li>**Core Concepts**</li>
+<p>   - Supervised vs unsupervised learning</p>
+<p>   - Training, validation, and test sets</p>
+<p>   - Overfitting and underfitting</p>
+<p>   - Feature engineering</p>
+<br>
+<p>2. <strong>Recommendation Systems<strong></p>
+<p>   - Collaborative filtering</p>
+<p>   - Content-based filtering</p>
+<p>   - Matrix factorization</p>
+<p>   - Evaluation metrics (precision, recall, NDCG)</p>
+<br>
+<p>3. <strong>Tools and Libraries<strong></p>
+<p>   - scikit-learn for traditional ML</p>
+<p>   - pandas for data manipulation</p>
+<p>   - NumPy for numerical computing</p>
+<p>   - TensorFlow/PyTorch for deep learning</p>
+<br>
+<h3>11.2 Recommended Learning Resources</h3>
+<br>
+<h4>11.2.1 Free Online Courses</h4>
+<li>**Web Development**</li>
+<p>   - freeCodeCamp: Full Stack Development</p>
+<p>   - Mozilla Developer Network (MDN) Web Docs</p>
+<p>   - Django Official Tutorial</p>
+<br>
+<p>2. <strong>Machine Learning<strong></p>
+<p>   - Coursera: Machine Learning by Andrew Ng</p>
+<p>   - edX: MIT Introduction to Computer Science</p>
+<p>   - Kaggle Learn: Micro-courses on ML topics</p>
+<br>
+<p>3. <strong>React<strong></p>
+<p>   - React Official Documentation</p>
+<p>   - Scrimba: Learn React for Free</p>
+<p>   - React Tutorial by Kent C. Dodds</p>
+<br>
+<h4>11.2.2 Hands-on Projects</h4>
+<li>**Beginner Projects**</li>
+<p>   - Build a simple blog with Django</p>
+<p>   - Create a to-do app with React</p>
+<p>   - Implement basic recommendation system</p>
+<br>
+<p>2. <strong>Intermediate Projects<strong></p>
+<p>   - E-commerce site with cart functionality</p>
+<p>   - Real-time chat application</p>
+<p>   - Movie recommendation system</p>
+<br>
+<p>3. <strong>Advanced Projects<strong></p>
+<p>   - Microservices architecture</p>
+<p>   - Machine learning pipeline</p>
+<p>   - Full-stack application with authentication</p>
+<br>
+<h3>11.3 Next Steps for This Project</h3>
+<br>
+<h4>11.3.1 Immediate Improvements</h4>
+<li>**Enhanced ML Models**</li>
+<p>   <code><code><code>python</p>
+<p>   # Add deep learning with TensorFlow</p>
+<p>   pip install tensorflow==2.13.0</p>
+<br>
+<p>   # Implement neural collaborative filtering</p>
+<p>   class NeuralCollaborativeFiltering:</p>
+<p>       def __init__(self, num_users, num_items, embedding_dim=50):</p>
+<p>           self.model = tf.keras.Sequential([</p>
+<p>               tf.keras.layers.Embedding(num_users, embedding_dim),</p>
+<p>               tf.keras.layers.Dense(128, activation='relu'),</p>
+<p>               tf.keras.layers.Dense(64, activation='relu'),</p>
+<p>               tf.keras.layers.Dense(1, activation='sigmoid')</p>
+<p>           ])</p>
+<p>   <code><code><code></p>
+<br>
+<p>2. <strong>Real-time Features<strong></p>
+<p>   <code><code><code>python</p>
+<p>   # Add WebSocket support</p>
+<p>   pip install channels</p>
+<br>
+<p>   # Real-time recommendation updates</p>
+<p>   class RecommendationConsumer(AsyncWebsocketConsumer):</p>
+<p>       async def connect(self):</p>
+<p>           await self.accept()</p>
+<br>
+<p>       async def receive(self, text_data):</p>
+<p>           # Process real-time user interactions</p>
+<p>           # Update recommendations instantly</p>
+<p>   <code><code><code></p>
+<br>
+<p>3. <strong>Advanced Analytics<strong></p>
+<p>   <code><code><code>python</p>
+<p>   # A/B testing framework</p>
+<p>   class ABTestFramework:</p>
+<p>       def assign_user_to_variant(self, user_id, experiment_name):</p>
+<p>           # Consistent assignment based on user_id hash</p>
+<p>           hash_value = hashlib.md5(f"{user_id}_{experiment_name}".encode()).hexdigest()</p>
+<p>           return "A" if int(hash_value, 16) % 2 == 0 else "B"</p>
+<p>   <code><code><code></p>
+<br>
+<h4>11.3.2 Production Readiness</h4>
+<li>**Security Enhancements**</li>
+<p>   <code><code><code>python</p>
+<p>   # Add API authentication</p>
+<p>   from rest_framework.authentication import TokenAuthentication</p>
+<p>   from rest_framework.permissions import IsAuthenticated</p>
+<br>
+<p>   class RecommendationsAPIView(APIView):</p>
+<p>       authentication_classes = [TokenAuthentication]</p>
+<p>       permission_classes = [IsAuthenticated]</p>
+<p>   <code><code><code></p>
+<br>
+<p>2. <strong>Monitoring and Logging<strong></p>
+<p>   <code><code><code>python</p>
+<p>   # Add structured logging</p>
+<p>   import structlog</p>
+<br>
+<p>   logger = structlog.get_logger()</p>
+<br>
+<p>   def log_recommendation_request(user_id, num_recommendations, response_time):</p>
+<p>       logger.info(</p>
+<p>           "recommendation_request",</p>
+<p>           user_id=user_id,</p>
+<p>           num_recommendations=num_recommendations,</p>
+<p>           response_time_ms=response_time,</p>
+<p>           timestamp=datetime.utcnow().isoformat()</p>
+<p>       )</p>
+<p>   <code><code><code></p>
+<br>
+<p>3. <strong>Performance Optimization<strong></p>
+<p>   <code><code><code>python</p>
+<p>   # Database query optimization</p>
+<p>   def get_user_interactions_optimized(user_id):</p>
+<p>       return UserBehavior.objects.filter(</p>
+<p>           user_id=user_id</p>
+<p>       ).select_related('product').prefetch_related(</p>
+<p>           'product__category'</p>
+<p>       ).order_by('-timestamp')[:100]</p>
+<p>   <code><code><code></p>
+<br>
+<h4>11.3.3 Advanced Features</h4>
+<li>**Computer Vision Integration**</li>
+<p>   <code><code><code>python</p>
+<p>   # Image-based product recommendations</p>
+<p>   from tensorflow.keras.applications import ResNet50</p>
+<p>   from tensorflow.keras.preprocessing import image</p>
+<br>
+<p>   class VisualRecommendationEngine:</p>
+<p>       def __init__(self):</p>
+<p>           self.model = ResNet50(weights='imagenet', include_top=False)</p>
+<br>
+<p>       def extract_features(self, image_path):</p>
+<p>           img = image.load_img(image_path, target_size=(224, 224))</p>
+<p>           img_array = image.img_to_array(img)</p>
+<p>           img_array = np.expand_dims(img_array, axis=0)</p>
+<p>           features = self.model.predict(img_array)</p>
+<p>           return features.flatten()</p>
+<p>   <code><code><code></p>
+<br>
+<p>2. <strong>Natural Language Processing<strong></p>
+<p>   <code><code><code>python</p>
+<p>   # Text-based product search</p>
+<p>   from transformers import AutoTokenizer, AutoModel</p>
+<br>
+<p>   class SemanticSearchEngine:</p>
+<p>       def __init__(self):</p>
+<p>           self.tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')</p>
+<p>           self.model = AutoModel.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')</p>
+<br>
+<p>       def encode_text(self, text):</p>
+<p>           inputs = self.tokenizer(text, return_tensors='pt', truncation=True, padding=True)</p>
+<p>           outputs = self.model(<strong>inputs)</p>
+<p>           return outputs.last_hidden_state.mean(dim=1)</p>
+<p>   <code><code><code></p>
+<br>
+<h3>11.4 Career Development</h3>
+<br>
+<h4>11.4.1 Skill Progression</h4>
+<li>**Junior Developer (0-2 years)**</li>
+<p>   - Master one framework (Django or React)</p>
+<p>   - Understand database basics</p>
+<p>   - Write clean, readable code</p>
+<p>   - Learn version control (Git)</p>
+<br>
+<p>2. <strong>Mid-level Developer (2-5 years)<strong></p>
+<p>   - Full-stack development</p>
+<p>   - API design and testing</p>
+<p>   - Performance optimization</p>
+<p>   - Code review and mentoring</p>
+<br>
+<p>3. <strong>Senior Developer (5+ years)<strong></p>
+<p>   - System architecture</p>
+<p>   - Technical leadership</p>
+<p>   - Cross-functional collaboration</p>
+<p>   - Innovation and research</p>
+<br>
+<h4>11.4.2 Specialization Paths</h4>
+<li>**Machine Learning Engineer**</li>
+<p>   - Focus on ML model development</p>
+<p>   - Learn MLOps and model deployment</p>
+<p>   - Master statistical analysis</p>
+<p>   - Contribute to ML research</p>
+<br>
+<p>2. <strong>Full-Stack Developer<strong></p>
+<p>   - Expert in both frontend and backend</p>
+<p>   - DevOps and cloud platforms</p>
+<p>   - Performance optimization</p>
+<p>   - Team leadership</p>
+<br>
+<p>3. <strong>Data Scientist<strong></p>
+<p>   - Statistical analysis and modeling</p>
+<p>   - Business intelligence</p>
+<p>   - Experimental design</p>
+<p>   - Data visualization</p>
+<br>
+<p>---</p>
+<br>
+<h2>Conclusion</h2>
+<br>
+<p>This AI E-Commerce Recommendation Engine project demonstrates modern web development practices, combining:</p>
+<br>
+<li>**Backend API development** with Django and REST frameworks</li>
+<li>**Frontend user interfaces** with React and modern JavaScript</li>
+<li>**Machine learning algorithms** for personalized recommendations</li>
+<li>**Database design** for efficient data storage and retrieval</li>
+<li>**DevOps practices** with Docker and containerization</li>
+<br>
+<p>The project serves as an excellent foundation for learning full-stack development, machine learning, and building scalable web applications. Each component can be studied independently and then understood as part of the larger system.</p>
+<br>
+<p><strong>Key Takeaways<strong>:</p>
+<li>**Separation of Concerns**: Frontend, backend, and ML components are distinct but work together</li>
+<p>2. <strong>API-First Design<strong>: RESTful APIs enable flexible frontend development</p>
+<p>3. <strong>Data-Driven Features<strong>: Machine learning enhances user experience with personalization</p>
+<p>4. <strong>Production Readiness<strong>: Docker, caching, and proper error handling prepare for real-world deployment</p>
+<br>
+<p>Continue building on this foundation by exploring advanced topics, contributing to open-source projects, and applying these concepts to your own ideas!</p>
+<br>
+<p>---</p>
+<br>
+<p>*This documentation serves as both a reference guide and learning resource for understanding modern web application development with AI/ML integration.*</p>
+</body>
+</html>

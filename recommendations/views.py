@@ -6,11 +6,34 @@ from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
 from django.core.files.storage import default_storage
 from django.conf import settings
-from .recommendation_engine import RecommendationEngine
-from .enhanced_engine import EnhancedRecommendationEngine
-from .streaming_processor import RealTimeEventProcessor, UserEvent
-from .ab_testing import ABTestingFramework, ExperimentConfig, ExperimentStatus
-from .performance_monitor import PerformanceMonitor, RealTimeAnalytics
+try:
+    from .recommendation_engine import RecommendationEngine
+except ImportError:
+    # Fallback to simple engine if ML dependencies not available
+    from .simple_engine import RecommendationEngine
+try:
+    from .enhanced_engine import EnhancedRecommendationEngine
+    from .streaming_processor import RealTimeEventProcessor, UserEvent
+    from .ab_testing import ABTestingFramework, ExperimentConfig, ExperimentStatus
+    from .performance_monitor import PerformanceMonitor, RealTimeAnalytics
+except ImportError:
+    # Create dummy classes for missing ML components
+    class EnhancedRecommendationEngine:
+        pass
+    class RealTimeEventProcessor:
+        pass
+    class UserEvent:
+        pass
+    class ABTestingFramework:
+        pass
+    class ExperimentConfig:
+        pass
+    class ExperimentStatus:
+        pass
+    class PerformanceMonitor:
+        pass
+    class RealTimeAnalytics:
+        pass
 from .models import UserBehavior, Product, DatasetUpload, ModelTraining
 import logging
 import os
@@ -31,10 +54,17 @@ streaming_config = {
 import redis
 redis_client = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
-stream_processor = RealTimeEventProcessor(streaming_config)
-ab_framework = ABTestingFramework(redis_client, streaming_config)
-performance_monitor = PerformanceMonitor(redis_client)
-realtime_analytics = RealTimeAnalytics(redis_client)
+try:
+    stream_processor = RealTimeEventProcessor(streaming_config)
+    ab_framework = ABTestingFramework(redis_client, streaming_config)
+    performance_monitor = PerformanceMonitor(redis_client)
+    realtime_analytics = RealTimeAnalytics(redis_client)
+except:
+    # Use dummy instances if initialization fails
+    stream_processor = RealTimeEventProcessor()
+    ab_framework = ABTestingFramework()
+    performance_monitor = PerformanceMonitor()
+    realtime_analytics = RealTimeAnalytics()
 
 class RecommendationsAPIView(APIView):
     def get(self, request, user_id):

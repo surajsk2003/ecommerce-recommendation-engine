@@ -1,0 +1,56 @@
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Node modules
+node_modules/
+npm-debug.log*
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+logs/
+
+# Database files
+*.db
+*.sqlite3
+dump.rdb
+
+# Flutter/Dart
+flutter_integration/build/
+flutter_integration/.dart_tool/
+flutter_integration/.packages
+
+# Temporary files
+*.tmp
+*.temp
+
+# Documentation
+*.md
+docs/
