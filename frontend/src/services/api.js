@@ -1,6 +1,6 @@
 // API service to connect React frontend with Django backend
 const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://your-domain.com/api' 
+  ? 'https://ecommerce-backend-ba28.onrender.com/api' 
   : 'http://localhost:8000/api';
 
 class ApiService {
