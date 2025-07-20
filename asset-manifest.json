@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ecommerce-recommendation-engine/static/css/main.92c8d4eb.css",
+    "main.js": "/ecommerce-recommendation-engine/static/js/main.a33a4700.js",
+    "index.html": "/ecommerce-recommendation-engine/index.html",
+    "main.92c8d4eb.css.map": "/ecommerce-recommendation-engine/static/css/main.92c8d4eb.css.map",
+    "main.a33a4700.js.map": "/ecommerce-recommendation-engine/static/js/main.a33a4700.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92c8d4eb.css",
+    "static/js/main.a33a4700.js"
+  ]
+}
