@@ -17,15 +17,18 @@ python manage.py shell --settings=ecommerce_rec.settings_prod << EOF
 from django.contrib.auth.models import User
 import os
 
-username = os.environ.get('ADMIN_USERNAME', ***REMOVED***)
-email = os.environ.get('ADMIN_EMAIL', '***REMOVED***')
-password = os.environ.get('ADMIN_PASSWORD', '***REMOVED***')
+username = os.environ.get('ADMIN_USERNAME')
+email = os.environ.get('ADMIN_EMAIL')
+password = os.environ.get('ADMIN_PASSWORD')
 
-if not User.objects.filter(username=username).exists():
-    User.objects.create_superuser(username, email, password)
-    print(f"✅ Superuser {username} created")
+if username and email and password:
+    if not User.objects.filter(username=username).exists():
+        User.objects.create_superuser(username, email, password)
+        print(f"✅ Superuser {username} created")
+    else:
+        print(f"ℹ️  Superuser {username} already exists")
 else:
-    print(f"ℹ️  Superuser {username} already exists")
+    print("ℹ️  Admin credentials not provided - skipping superuser creation")
 EOF
 
 # Populate sample data if DATABASE_POPULATE is set
